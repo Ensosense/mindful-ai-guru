@@ -17,4 +17,3 @@ Mindful AI Guru aims to be a creative source of inspiration and reflection for u
 - **Backend:** Spring Boot.
 - **AI Integration:** Use of AI models through Spring AI framework to generate poetry and verses based on user input.
 
-Explore your inner self with Mindful AI Guru and be inspired by the power of AI and spirituality.
