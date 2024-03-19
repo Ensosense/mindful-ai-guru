@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import se.enso.hokku.domain.hokku.Hokku;
-import se.enso.hokku.domain.hokku.HokkuServicePort;
+import se.enso.hokku.domain.hokku.ports.HokkuServicePort;
 
 //api adapter
 @Controller

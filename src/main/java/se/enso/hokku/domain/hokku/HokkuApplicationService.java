@@ -1,6 +1,8 @@
 package se.enso.hokku.domain.hokku;
 
 import lombok.RequiredArgsConstructor;
+import se.enso.hokku.domain.hokku.ports.HokkuLlmPort;
+import se.enso.hokku.domain.hokku.ports.HokkuServicePort;
 import se.enso.hokku.domain.utils.custom_annotations.DomainService;
 
 @DomainService

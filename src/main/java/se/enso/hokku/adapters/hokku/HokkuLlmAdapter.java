@@ -11,7 +11,7 @@ import org.springframework.ai.parser.BeanOutputParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import se.enso.hokku.domain.hokku.Hokku;
-import se.enso.hokku.domain.hokku.HokkuLlmPort;
+import se.enso.hokku.domain.hokku.ports.HokkuLlmPort;
 
 // spi adapter
 @Component
