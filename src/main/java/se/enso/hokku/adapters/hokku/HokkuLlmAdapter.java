@@ -12,24 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import se.enso.hokku.domain.hokku.Hokku;
 import se.enso.hokku.domain.hokku.HokkuLlmPort;
+
 // spi adapter
 @Component
 @RequiredArgsConstructor
 public class HokkuLlmAdapter implements HokkuLlmPort {
 
-
   @Autowired
   OpenAiChatClient chatClient;
-
-  @Override
-  public Hokku save(Hokku hokku) {
-    return null;
-  }
-
-  @Override
-  public void deleteById(String hokkuId) {
-
-  }
 
   @Override
   public Hokku generateHokkuJson(String message) {
@@ -37,8 +27,7 @@ public class HokkuLlmAdapter implements HokkuLlmPort {
 
     String userMessage =
         """
-            Generate a haiku in a classical japanese style for the {theme} theme
-            {format}
+            Generate a haiku in a classical japanese style for the {theme} theme {format}
             """;
 
     PromptTemplate promptTemplate = new PromptTemplate(userMessage,
@@ -49,5 +38,14 @@ public class HokkuLlmAdapter implements HokkuLlmPort {
 
     System.out.println(generation.getOutput().getContent());
     return outputParser.parse(generation.getOutput().getContent());
+  }
+
+  @Override
+  public Hokku save(Hokku hokku) {
+    return null;
+  }
+
+  @Override
+  public void deleteById(String hokkuId) {
   }
 }
