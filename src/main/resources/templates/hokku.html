@@ -52,18 +52,15 @@
     </style>
 </head>
 <body>
-<div class="container">
+<<div class="container">
     <h1>Spiritual Haiku Generator</h1>
     <p class="lead">Enter your thoughts below and let our AI generate a spiritual haiku for you.</p>
-    <div class="form-group">
-        <label for="inputText">Enter your thoughts:</label>
-        <textarea class="form-control" id="inputText" rows="5" placeholder="Express your thoughts..." hx-post="/generate_haiku" hx-target="#haiku"></textarea>
-    </div>
-    <button class="btn btn-primary btn-block" hx-get="/json-hokku" hx-trigger="click" hx-target="#haiku">Generate Haiku</button>
-    <div id="haiku" class="mt-4">
-        <!-- Generated haiku will be displayed here -->
-        <p th:text="${hokku.title}"></p>
-        <p th:text="${hokku.text}"></p>
+    <button class="btn btn-primary btn-block" hx-get="localhost:8080/api/book" hx-swapped="innerHTML" hx-target="#hokku" hx-trigger="click">Generate Haiku</button>
+    <div id="hokku" class="mt-4">
+        <th:block th:fragment="haiku">
+            <p th:text="${hokku.title}">Title</p>
+            <p th:text="${hokku.text}">Text</p>
+        </th:block>
     </div>
 </div>
 </body>

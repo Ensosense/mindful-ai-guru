@@ -40,12 +40,4 @@ public class HokkuLlmAdapter implements HokkuLlmPort {
     return outputParser.parse(generation.getOutput().getContent());
   }
 
-  @Override
-  public Hokku save(Hokku hokku) {
-    return null;
-  }
-
-  @Override
-  public void deleteById(String hokkuId) {
-  }
 }
