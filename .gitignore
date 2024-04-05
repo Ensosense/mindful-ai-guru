@@ -33,3 +33,5 @@ build/
 .vscode/
 
 ServiceAccountKey.json
+
+node_modules/
