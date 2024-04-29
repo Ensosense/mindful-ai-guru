@@ -1,6 +1,5 @@
 package se.enso.hokku.utils.custom_annotations;
 
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
@@ -10,5 +9,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Inherited
-public @interface DomainService {
-}
+public @interface DomainService {}

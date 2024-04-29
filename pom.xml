@@ -96,6 +96,11 @@
 			<groupId>com.google.cloud</groupId>
 			<artifactId>spring-cloud-gcp-starter-data-firestore</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.google.cloud</groupId>
+			<artifactId>spring-cloud-gcp-starter-security-firebase</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

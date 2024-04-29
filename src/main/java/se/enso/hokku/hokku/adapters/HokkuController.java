@@ -1,6 +1,5 @@
 package se.enso.hokku.hokku.adapters;
 
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +15,10 @@ public class HokkuController {
   private final HokkuServicePort hokkuServicePort;
 
   @GetMapping("/json-hokku")
-  public String getHokkuJson(@RequestParam(value = "theme", defaultValue = "zen") String message,
-                             Model model) {
+  public String getHokkuJson(
+      @RequestParam(value = "theme", defaultValue = "zen") String message, Model model) {
     Hokku hokku = hokkuServicePort.getHokkuJson(message);
     model.addAttribute("hokku", hokku);
     return "index";
-
   }
 }

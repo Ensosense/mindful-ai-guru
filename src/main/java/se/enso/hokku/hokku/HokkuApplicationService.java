@@ -14,15 +14,11 @@ import se.enso.hokku.utils.custom_annotations.DomainService;
 @RequiredArgsConstructor
 public class HokkuApplicationService implements HokkuServicePort {
 
-  @Autowired
-  private final HokkuLlmPort hokkuLlmPort;
+  @Autowired private final HokkuLlmPort hokkuLlmPort;
 
-  @Autowired
-  private final HokkuRedisRepository hokkuRedisRepository;
+  @Autowired private final HokkuRedisRepository hokkuRedisRepository;
 
-  @Autowired
-  private final HokkuFirebaseRepository hokkuFirebaseRepository;
-
+  @Autowired private final HokkuFirebaseRepository hokkuFirebaseRepository;
 
   @Override
   public Hokku getHokkuJson(String message) {
@@ -41,11 +37,11 @@ public class HokkuApplicationService implements HokkuServicePort {
 
   @Override
   public Mono<Hokku> saveHokkuToFirestore(Hokku hokku) {
-  return hokkuFirebaseRepository.save(hokku);
+    return hokkuFirebaseRepository.save(hokku);
   }
 
   @Override
-  public Flux<Hokku> getAllHokkus(){
+  public Flux<Hokku> getAllHokkus() {
     return hokkuFirebaseRepository.findAll();
   }
 }

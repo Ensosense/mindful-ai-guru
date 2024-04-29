@@ -8,9 +8,6 @@ import se.enso.hokku.utils.custom_annotations.DomainService;
 @Configuration
 @ComponentScan(
     basePackages = "se.enso.hokku",
-    includeFilters = @ComponentScan.Filter(
-        type = FilterType.ANNOTATION, value = DomainService.class
-    )
-)
-public class DomainConfiguration {
-}
+    includeFilters =
+        @ComponentScan.Filter(type = FilterType.ANNOTATION, value = DomainService.class))
+public class DomainConfiguration {}

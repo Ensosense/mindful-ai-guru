@@ -1,6 +1,5 @@
 package se.enso.hokku.configuration;
 
-
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,19 +14,20 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 public class RedisConfig {
 
   @Bean
-  public JedisConnectionFactory jedisConnectionFactory(){
+  public JedisConnectionFactory jedisConnectionFactory() {
 
     RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
     redisStandaloneConfiguration.setHostName("127.0.0.1");
     redisStandaloneConfiguration.setPort(6379);
-   // redisStandaloneConfiguration.setPassword("Password");
+    // redisStandaloneConfiguration.setPassword("Password");
 
-    JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory(redisStandaloneConfiguration);
+    JedisConnectionFactory jedisConnectionFactory =
+        new JedisConnectionFactory(redisStandaloneConfiguration);
     return jedisConnectionFactory;
   }
 
   @Bean
-  public RedisTemplate<String, Object> redisTemplate(){
+  public RedisTemplate<String, Object> redisTemplate() {
     RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
     redisTemplate.setConnectionFactory(jedisConnectionFactory());
     redisTemplate.setKeySerializer(new StringRedisSerializer());
@@ -37,6 +37,5 @@ public class RedisConfig {
     redisTemplate.setEnableTransactionSupport(true);
     redisTemplate.afterPropertiesSet();
     return redisTemplate;
-
   }
 }

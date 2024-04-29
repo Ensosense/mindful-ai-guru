@@ -8,15 +8,14 @@ import reactor.core.publisher.Flux;
 import se.enso.hokku.hokku.Hokku;
 import se.enso.hokku.hokku.ports.HokkuRedisRepository;
 
-//spi adapter
+// spi adapter
 @Repository
 public class HokkuRedisRepositoryImpl implements HokkuRedisRepository {
 
-  @Autowired
-  private RedisTemplate redisTemplate;
-
+  @Autowired private RedisTemplate redisTemplate;
 
   private static final String KEY = "hokku";
+
   @Override
   public boolean saveHokku(Hokku hokku) {
     return true;
@@ -27,6 +26,4 @@ public class HokkuRedisRepositoryImpl implements HokkuRedisRepository {
     List<Hokku> hokkusList = redisTemplate.opsForHash().values(KEY);
     return Flux.fromIterable(hokkusList);
   }
-
-
 }

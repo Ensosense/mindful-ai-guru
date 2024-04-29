@@ -1,6 +1,5 @@
 package se.enso.hokku.hokku.adapters;
 
-
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.Generation;
@@ -18,8 +17,7 @@ import se.enso.hokku.hokku.ports.HokkuLlmPort;
 @RequiredArgsConstructor
 public class HokkuLlmAdapter implements HokkuLlmPort {
 
-  @Autowired
-  OpenAiChatClient chatClient;
+  @Autowired OpenAiChatClient chatClient;
 
   @Override
   public Hokku generateHokkuJson(String message) {
@@ -27,17 +25,16 @@ public class HokkuLlmAdapter implements HokkuLlmPort {
 
     String userMessage =
         """
-            Generate a haiku in a classical japanese style for the {theme} theme {format}
+            Generate a hokku in a classical japanese style, with three sentences, don't repeat the previous hokku for the {theme} theme {format}
             """;
 
-    PromptTemplate promptTemplate = new PromptTemplate(userMessage,
-        Map.of("theme", message, "format", outputParser.getFormat()));
+    PromptTemplate promptTemplate =
+        new PromptTemplate(
+            userMessage, Map.of("theme", message, "format", outputParser.getFormat()));
     Prompt prompt = promptTemplate.create();
     Generation generation = chatClient.call(prompt).getResult();
 
-
-   // System.out.println(generation.getOutput().getContent());
+    // System.out.println(generation.getOutput().getContent());
     return outputParser.parse(generation.getOutput().getContent());
   }
-
 }

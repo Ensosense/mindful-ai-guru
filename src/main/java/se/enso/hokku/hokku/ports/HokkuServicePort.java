@@ -4,7 +4,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import se.enso.hokku.hokku.Hokku;
 
-//api port
+// api port
 public interface HokkuServicePort {
   Hokku getHokkuJson(String message);
 
